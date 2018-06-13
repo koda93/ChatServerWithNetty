@@ -27,7 +27,7 @@ public class ChatServer {
         SelfSignedCertificate ssc = new SelfSignedCertificate();
         SslContext sslCtx = SslContextBuilder.forServer(ssc.certificate(), ssc.privateKey())
             .build();
-        // SslContextë¥¼ ì‚¬ìš©í•˜ë©´
+        // SslContextë¥? ?‚¬?š©?•˜ë©?
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
