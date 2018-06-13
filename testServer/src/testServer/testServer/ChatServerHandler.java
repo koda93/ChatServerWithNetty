@@ -15,7 +15,6 @@ public class ChatServerHandler extends ChannelInboundHandlerAdapter {
         System.out.println("handlerAdded of [SERVER]");
         Channel incoming = ctx.channel();
         for (Channel channel : channelGroup) {
-            //?‚¬?š©?ê°? ì¶”ê??˜?—ˆ?„ ?•Œ ê¸°ì¡´ ?‚¬?š©??—ê²? ?•Œë¦?
             channel.write("[SERVER] - " + incoming.remoteAddress() + "has joined!\n");
         }
         channelGroup.add(incoming);
@@ -23,7 +22,6 @@ public class ChatServerHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        // ?‚¬?š©?ê°? ? ‘?†?–ˆ?„ ?•Œ ?„œë²„ì— ?‘œ?‹œ.
         System.out.println("User Access!");
     }
 
@@ -32,7 +30,6 @@ public class ChatServerHandler extends ChannelInboundHandlerAdapter {
         System.out.println("handlerRemoved of [SERVER]");
         Channel incoming = ctx.channel();
         for (Channel channel : channelGroup) {
-            //?‚¬?š©?ê°? ?‚˜ê°”ì„ ?•Œ ê¸°ì¡´ ?‚¬?š©??—ê²? ?•Œë¦?
             channel.write("[SERVER] - " + incoming.remoteAddress() + "has left!\n");
         }
         channelGroup.remove(incoming);
@@ -51,7 +48,6 @@ public class ChatServerHandler extends ChannelInboundHandlerAdapter {
         Channel incoming = ctx.channel();
         for (Channel channel : channelGroup) {
             if (channel != incoming) {
-                //ë©”ì‹œì§? ? „?‹¬.
                 channel.writeAndFlush("[" + incoming.remoteAddress() + "]" + message + "\n");
             }
         }
